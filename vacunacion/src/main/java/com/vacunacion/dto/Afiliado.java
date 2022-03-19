@@ -43,6 +43,31 @@ public class Afiliado {
 	@Size(min = 10, max = 10)
 	private String telefonoCelular;
 
+	private Date fechaRegistro;
+	
+	public Afiliado() {
+		
+	}
+
+	public Afiliado(Long idAfiliado,  String nombre, String apellidoPaterno,
+			 String apellidoMaterno, String sexo, Date fechaNacimiento,
+			 String curp, String matriculaAsegurado,   String email,
+			 String telefonoFijo, String telefonoCelular, Date fechaRegistro) {
+		super();
+		this.idAfiliado = idAfiliado;
+		this.nombre = nombre;
+		this.apellidoPaterno = apellidoPaterno;
+		this.apellidoMaterno = apellidoMaterno;
+		this.sexo = sexo;
+		this.fechaNacimiento = fechaNacimiento;
+		this.curp = curp;
+		this.matriculaAsegurado = matriculaAsegurado;
+		this.email = email;
+		this.telefonoFijo = telefonoFijo;
+		this.telefonoCelular = telefonoCelular;
+		this.fechaRegistro = fechaRegistro;
+	}
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -137,6 +162,14 @@ public class Afiliado {
 
 	public void setTelefonoCelular(String telefonoCelular) {
 		this.telefonoCelular = telefonoCelular;
+	}
+
+	public Date getFechaRegistro() {
+		return fechaRegistro;
+	}
+
+	public void setFechaRegistro(Date fechaRegistro) {
+		this.fechaRegistro = fechaRegistro;
 	}
 
 }

@@ -1,5 +1,9 @@
 package com.vacunacion.app;
 
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +49,15 @@ public class AfiliadoController {
 		model.addAttribute("titulo", "Formulario de registro de afiliado");
 		return "formAfiliado";
 	}
-		
+	
+	@RequestMapping (value = "/listar")
+	public String listarAfiliados (Model model) {
+		List lista = Arrays.asList(
+				new Afiliado(1L, "Eloy", "Rosas", "Jinez", "H", new Date(), "ROJE900818HMSSNL07", "XXXXX", "YYYYYY", "345345353", "3453453453453", new Date()),
+				new Afiliado(2L, "Eloy", "Jinez", "Jinez", "H", new Date(), "ROJE900818HMSSNL07", "XXXXX", "YYYYYY", "345345353", "3453453453453", new Date())
+);
+		model.addAttribute("titulo", "Afiliados registrados");
+		model.addAttribute("afiliados", lista);
+		return "listarAfiliados";
+	}
 }
