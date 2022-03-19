@@ -9,10 +9,10 @@
 </head>
 
 <body>
-	<h1 th:text="${titulo}" class="text-secondary border border-success border-top- border-left-0 border-right-0"></h1>
+	<h1 th:text="${titulo}" class="text-secondary border border-success border-top-0 border-left-0 border-right-0"></h1>
 
 	<div class="container">
-		<form th:action="@{/registrar}" th:object="${afiliado}" method="POST">
+		<form th:action="@{/afiliado/form}" th:object="${afiliado}" method="POST">
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Nombre:</label>
 				<div class="col-sm-6">
@@ -22,6 +22,7 @@
 
 				</div>
 			</div>
+			<br>
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Apellido paterno:</label>
 				<div class="col-sm-6">
@@ -31,6 +32,7 @@
 
 				</div>
 			</div>
+			<br>
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Apellido materno:</label>
 				<div class="col-sm-6">
@@ -40,6 +42,7 @@
 
 				</div>
 			</div>
+			<br>
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Fecha de nacimiento</label>
 				<div class="col-sm-6">
@@ -49,15 +52,26 @@
 
 				</div>
 			</div>
-			<div class="form-group row">
-				<label class="col-sm-2 col-form-label">Sexo</label>
-				<div class="col-sm-6">
-					<input type="text" th:field="*{sexo}" class="form-control" />
-					<small class="form-text text-danger" th:if="${#fields.hasErrors('sexo')}"
-						th:errors="*{sexo}"></small>
+			<br>
 
-				</div>
+			<div class="form-group row">
+
+				<label class="col-sm-2 col-form-label">Sexo</label>
+
+				
+					<div class="col-sm-8 custom-control custom-radio">
+						
+						<input type="radio" name="sexo" value="H" class="custom-control-input">
+						<label class="custom-control-label" for="sexo">Hombre</label>
+						
+						<input type="radio" name="sexo" value="M" class="custom-control-input">
+						<label class="custom-control-label" for="sexo">Mujer</label>
+	
+					</div>
+					
 			</div>
+
+			<br>
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">CURP:</label>
 				<div class="col-sm-6">
@@ -67,6 +81,7 @@
 
 				</div>
 			</div>
+			<br>
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">C&oacute;digo postal:</label>
 				<div class="col-sm-6">
@@ -76,25 +91,27 @@
 
 				</div>
 			</div>
+			<br>
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Email</label>
 				<div class="col-sm-6">
-					<input type="text" th:field="*{email}" class="form-control" />
+					<input type="email" th:field="*{email}" class="form-control" />
 					<small class="form-text text-danger" th:if="${#fields.hasErrors('email')}"
 						th:errors="*{email}"></small>
 
 				</div>
 			</div>
+			<br>
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Tel&eacute;fono celular:</label>
 				<div class="col-sm-6">
 					<input type="text" th:field="*{telefonoCelular}" class="form-control" />
-					<small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}"
-						th:errors="*{nombre}"></small>
+					<small class="form-text text-danger" th:if="${#fields.hasErrors('telefonoCelular')}"
+						th:errors="*{telefonoCelular}"></small>
 
 				</div>
 			</div>
-
+			<br>
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Tel&eacute;fono fijo:</label>
 				<div class="col-sm-6">
@@ -104,7 +121,7 @@
 
 				</div>
 			</div>
-
+			<br>
 			<div class="form-group row">
 				<div class="col-sm-6">
 					<input type="submit" class="btn btn-primary" value="Registrar" />

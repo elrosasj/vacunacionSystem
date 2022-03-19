@@ -3,10 +3,14 @@ package com.vacunacion.dto;
 import java.util.Date;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.vacunacion.validation.CurpRegex;
 
 public class Afiliado {
 	private Long idAfiliado;
@@ -24,6 +28,7 @@ public class Afiliado {
 	private Date fechaNacimiento;
 
 	@NotEmpty
+	@CurpRegex(message = "El campo Curp tiene un formato invalido")
 	private String curp;
 	private String matriculaAsegurado;
 	private String codigoPostal;
@@ -32,9 +37,10 @@ public class Afiliado {
 	@Email
 	private String email;
 
-	@NotEmpty
+	@Size(min = 10, max = 10)
 	private String telefonoFijo;
-	@NotEmpty
+
+	@Size(min = 10, max = 10)
 	private String telefonoCelular;
 
 	public String getNombre() {
