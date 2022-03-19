@@ -9,10 +9,11 @@
 </head>
 
 <body>
-	<h1 th:text="${titulo}" class="text-secondary border border-success border-top-0 border-left-0 border-right-0"></h1>
+	<section th:replace="components/menu :: seccionMenu"></section>
+	<h2 th:text="${titulo}" class="text-secondary border border-success border-top-0 border-left-0 border-right-0"></h2>
 
 	<div class="container">
-		<form th:action="@{/afiliado/form}" th:object="${afiliado}" method="POST">
+		<form th:action="@{/afiliado/registrar}" th:object="${afiliado}" method="POST">
 			<div class="form-group row">
 				<label class="col-sm-2 col-form-label">Nombre:</label>
 				<div class="col-sm-6">

@@ -14,40 +14,15 @@
 
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<div class="container-fluid">
-			<a class="navbar-brand" href="#">Mi cartilla</a>
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarNav">
-				<ul class="navbar-nav">
-					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="#">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Registro</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="#">Consulta</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link disabled">Catalogos</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</nav>
+<section th:replace="components/menu :: seccionMenu"></section>
 
 	<div class="container">
-		<h1 th:text="${titulo}" class="text-primary"></h1>
+		<h2 th:text="${titulo}" class="text-primary"></h2>
+		<p><a class="btn btn-success btn-xs" th:href="@{/afiliado/registrar}" th:text="Registrar"></a></p>
 		<table class="table table-striped">
 			<thead>
 				<tr>
 					<td>Nombre</td>
-					<td>Apellido paterno</td>
-					<td>Apellido materno</td>
 					<td>Sexo</td>
 					<td>Curp</td>
 					<td>Tel&eacute;fono celúlar</td>
@@ -56,26 +31,26 @@
 					<td>Fecha de registro</td>
 					<td>Editar afiliado</td>
 					<td>Elimina afiliador</td>
-<!--					<td>Plan de vacunacion</td>-->
+
 				</tr>
 			</thead>
 
 			<tbody>
 
 				<tr th:each="afiliado: ${afiliados}">
-					<td th:text="${afiliado.nombre}"></td>
-					<td th:text="${afiliado.apellidoPaterno}"></td>
-					<td th:text="${afiliado.apellidoMaterno}"></td>
+					<td
+						th:text="${afiliado.nombre} +' '+ ${afiliado.apellidoPaterno} +' '+ ${afiliado.apellidoMaterno}">
+					</td>
 					<td th:text="${afiliado.sexo}"></td>
 					<td th:text="${afiliado.curp}"></td>
 					<td th:text="${afiliado.telefonoCelular}"></td>
 					<td th:text="${afiliado.telefonoFijo}"></td>
 					<td th:text="${#dates.format(afiliado.fechaNacimiento,'dd-MM-yyyy')}"></td>
 					<td th:text="${#dates.format(afiliado.fechaRegistro,'dd-MM-yyyy')}"></td>
-					<td> <a class="btn btn-primary" th:href="@{/afiliado/editar}" + "${afiliado.idAfiliado}" th:text="editar"></a></td>
-					<td> <a class="btn btn-danger" th:href="@{/afiliado/eliminar}" + "${afiliado.idAfiliado}" th:text="eliminar"></a></td>
-<!--					<td> <a class="btn btn-primary" th:href="@{/planes/vacuna/mostrar}" + "${afiliado.idAfiliado}" th:text="Mostrar plan vacunacion"></a></td>-->
-
+					<td> <a class="btn btn-primary" th:href="@{/afiliado/editar/}+${afiliado.idAfiliado}"
+							th:text="Editar"></a></td>
+					<td> <a class="btn btn-danger" th:href="@{/afiliado/eliminar}" + "${afiliado.idAfiliado}"
+							th:text="Eliminar"></a></td>
 				<tr>
 
 			</tbody>
